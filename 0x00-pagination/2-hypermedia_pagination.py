@@ -36,6 +36,7 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """func that takes 2 arguments: page and page_size"""
         assert type(page) is int and page > 0
         assert type(page_size) is int and page_size > 0
 
@@ -49,6 +50,8 @@ class Server:
         return data_range
 
     def get_hyper(self, page: int = 1, page_size: int = 10):
+        """func that takes same argument as get_page
+        and returns a dictionary"""
         data = self.get_page(page, page_size)
 
         dataset_length = len(self.dataset())
