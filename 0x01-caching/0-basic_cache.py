@@ -10,7 +10,7 @@ class BasicCache(BaseCaching):
         """
         initialization function
         """
-        super().__init__()
+        BaseCaching.__init__(self)
 
     def put(self, key, item):
         """
