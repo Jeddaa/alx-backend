@@ -4,17 +4,24 @@ from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """ basic cache class """
+    """ Defines a class for caching information in key-value pairs
+    Methods:
+        put(key, item) - store a key-value pair
+        get(key) - retrieve the value associated with a key
+    """
 
     def __init__(self):
         """
-        initialization function
+        Initialize the class using the parent class __init__ method
         """
         BaseCaching.__init__(self)
 
     def put(self, key, item):
         """
-        function to pass item value to dictionary
+        Store a key-value pair
+        Args:
+            Key
+            Item
         """
         if key is None or item is None:
             pass
@@ -23,7 +30,8 @@ class BasicCache(BaseCaching):
 
     def get(self, key):
         """
-        function to get
+        Return value linked to key.
+        If key is None or doesn't exist, return None
         """
         if key is None and key not in self.cache_data:
             return None
