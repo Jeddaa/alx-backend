@@ -26,8 +26,8 @@ class LFUCache(BaseCaching):
                 del self.index[min_key]
                 # self.used.remove(min_key)
                 # del self.used[0]
-            if key in self.used:
-                del self.used[self.used.index(key)]
+            # if key in self.used:
+            #     del self.used[self.used.index(key)]
             # self.used.append(key)
             self.index[key] = self.index.get(key, 0) + 1
             self.cache_data[key] = item
