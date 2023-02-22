@@ -4,7 +4,7 @@
 from base_caching import BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """class fifo cache"""
 
     def __init__(self):
