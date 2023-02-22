@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-""" LRU caching module
+""" MRU caching module
 """
 from base_caching import BaseCaching
 
 
-class LRUCache(BaseCaching):
-    """class LRU cache"""
+class MRUCache(BaseCaching):
+    """class MRU cache"""
 
     def __init__(self):
         """constructor function"""
@@ -19,9 +19,9 @@ class LRUCache(BaseCaching):
             pass
         else:
             if dictlen >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
-                print(f"DISCARD: {self.used[0]}")
-                del self.cache_data[self.used[0]]
-                del self.used[0]
+                print(f"DISCARD: {self.used[-1]}")
+                del self.cache_data[self.used[-1]]
+                del self.used[-1]
             if key in self.used:
                 del self.used[self.used.index(key)]
             self.used.append(key)
