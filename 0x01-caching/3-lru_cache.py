@@ -15,12 +15,11 @@ class LRUCache(BaseCaching):
 
     def put(self, key, item):
         """function to put the items"""
-        new_dict = self.cache_data
         dictlen = len(self.cache_data)
         if key is None or item is None:
             pass
         else:
-            if dictlen >= BaseCaching.MAX_ITEMS:
+            if dictlen >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
                 last = self.cache_data.popitem(last=False)
                 print(f"DISCARD: {last[0]}")
             self.cache_data[key] = item
