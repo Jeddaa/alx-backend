@@ -20,7 +20,7 @@ class LIFOCache(BaseCaching):
             if dictlen >= BaseCaching.MAX_ITEMS:
                 # first = next(iter(self.cache_data))
                 last = self.cache_data.popitem()
-                print(f"DISCARD: {last}")
+                print(f"DISCARD: {last[0]}")
             self.cache_data[key] = item
 
     def get(self, key):
