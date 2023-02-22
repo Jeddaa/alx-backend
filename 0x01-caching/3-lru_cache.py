@@ -22,8 +22,8 @@ class LRUCache(BaseCaching):
         else:
             if dictlen >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
                 print(f"DISCARD: {self.used[0]}")
-                del self.used[0]
                 del self.cache_data[self.used[0]]
+                del self.used[0]
             if key in self.used:
                 del self.used[self.used.index(key)]
             self.used.append(key)
