@@ -11,6 +11,7 @@ class LRUCache(BaseCaching):
     def __init__(self):
         """constructor function"""
         super().__init__()
+        self.used = []
         self.cache_data = OrderedDict(self.cache_data)
 
     def put(self, key, item):
@@ -20,8 +21,12 @@ class LRUCache(BaseCaching):
             pass
         else:
             if dictlen >= BaseCaching.MAX_ITEMS and key not in self.cache_data:
-                last = self.cache_data.popitem(last=False)
-                print(f"DISCARD: {last[0]}")
+                print(f"DISCARD: {self.used[0]}")
+                del self.used[0]
+                del self.cache_data[self.used[0]]
+            if key in self.used:
+                del self.used[self.used.index(key)]
+            self.used.append(key)
             self.cache_data[key] = item
 
     def get(self, key):
