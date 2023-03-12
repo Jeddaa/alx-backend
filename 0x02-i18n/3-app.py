@@ -21,6 +21,8 @@ babel = Babel(app)
 # comment line 28 and uncomment line 34 for this to work as
 # the new babel doen't support @babel.localselector anymore
 # this was left this way because of alx checker
+
+
 @babel.localeselector
 def get_locale():
     ''' get locale from request header '''
@@ -28,7 +30,7 @@ def get_locale():
 
 
 @app.route('/', strict_slashes=False)
-def index()->str:
+def index() -> str:
     '''first route '''
     return render_template('3-index.html')
 
